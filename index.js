@@ -5,7 +5,7 @@ form.addEventListener("submit", (e) => {
     const weight = parseInt(document.querySelector('#weight').value);
 
     const result = document.querySelector('#results');
-    result.innerHTML = ''; // Clear previous content
+
 
     if (height === "" || height < 0 || isNaN(height)) {
         let addResult = document.createTextNode("Please give a valid height");
@@ -17,6 +17,7 @@ form.addEventListener("submit", (e) => {
         let calculation = (weight / ((height * height) / 10000)).toFixed(2);
         let addResult = document.createTextNode(`Your BMI is: ${calculation}`);
         result.appendChild(addResult);
+        
     }
 });
     
