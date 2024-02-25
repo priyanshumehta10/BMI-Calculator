@@ -1,11 +1,14 @@
 const form = document.querySelector("form");
 form.addEventListener("submit", (e) => {
     e.preventDefault();
-    const height = parseInt(document.querySelector('#height').value);
-    const weight = parseInt(document.querySelector('#weight').value);
-
+    const heightInput = document.querySelector('#height');
+    const weightInput = document.querySelector('#weight');
     const result = document.querySelector('#results');
 
+    const height = parseInt(heightInput.value);
+    const weight = parseInt(weightInput.value);
+
+    result.innerHTML = ''; // Clear previous result
 
     if (height === "" || height < 0 || isNaN(height)) {
         let addResult = document.createTextNode("Please give a valid height");
@@ -17,7 +20,9 @@ form.addEventListener("submit", (e) => {
         let calculation = (weight / ((height * height) / 10000)).toFixed(2);
         let addResult = document.createTextNode(`Your BMI is: ${calculation}`);
         result.appendChild(addResult);
-        
     }
+
+    // Clear input fields
+    heightInput.value = '';
+    weightInput.value = '';
 });
-    
